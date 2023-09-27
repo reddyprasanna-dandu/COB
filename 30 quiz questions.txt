@@ -1,0 +1,184 @@
+import random
+red_color = "\033[91m"
+reset_color = "\033[0m"
+# Define a list of 30 questions and their corresponding answers
+quiz_questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["A)Paris", "B)London", "c)Berlin", "D)Madrid"],
+        "answer": "A"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["A)Earth", "B)Mars", "C)Jupiter", "D)Saturn"],
+        "answer": "D"
+    },
+    {
+        "question": "What is the largest Organ in the human body?",
+        "options": ["A)Bones","B)Skin","C)heart","D)kidney"],
+        "answer": "B"
+    },
+    {
+        "question": "what is the national flower of India?",
+        "options": ["A)Rose","B)jasmine","C)Sunflower","D)Lotus"],
+        "answer": "D"
+    },
+    {
+        "question": "What is the capital of japan?",
+        "options": ["A)paris","B)Tokyo","C)London","D)Delhi"],
+        "answer": "B"
+    },
+    {
+        "question": "What is the chemical formula of Water?",
+        "options": ["A)H2o","B)co2","C)Caco3","D)H2so4"],
+        "answer": "A"
+    },
+    {
+        "question": "who invited the programming language python?",
+        "options": ["A)James Gosling","B)Guido van Rossom","C)Dennis Ritchie","D)John McCarthy"],
+        "answer": "B"
+    },
+    {
+        "question":"What is the Smallest prime number?",
+        "options":["A)2","B)1","C)0","D)4"],
+        "answer":"A"
+    },
+    {
+        "question":"What is the Tallest Mountain in the World?",
+        "options":["A)Kangchenjunga","B)Mount Everest","C)k2","D)Mount kilimanjaro"],
+        "answer":"B"
+    },
+    {
+        "question":"Which planet is known as the 'Red planet'?",
+        "options":["A)Jupiter","B)Saturn","C)Mars","D)Earth"],
+        "answer":"C"
+    },
+    {
+        "question":"Which Country is Known as the'land of the Rising Sun'?",
+        "options":["A)India","B)Russia","C)America","D)Japan"],
+        "answer":"D"
+    },
+    {
+        "question":"what is the next number in the following Sequence-7,14,21,28?",
+        "options":["A)30","B)34","C)38","D)35"],
+        "answer":"D"
+    },
+    {
+        "question":"what makes up (approx)80% of Brain's volume?",
+        "options":["A)bones","B)water","C)intestine","D)medulla"],
+        "answer":"B"
+    },
+    {
+        "question":"what is the Square root of 12?",
+        "options":["A)144","B)140","C)147","D)143"],
+        "answer":"A"
+     },
+     {
+
+        "question":"which first Electrical item did Thomas Edison invent?",
+        "options":["A)Telephone","B)motor","C)Electrical Bulb","D)Electrical Car"],
+        "answer":"A"
+    },
+    {
+        "question":"Which instrument is used for measuring Wind speed?",
+        "options":["A)Thermometer","B)Anemometer","C)stethoscope","D)X-ray"],
+        "answer":"B"
+    },
+    {
+        "question":"Which Turtle Command is Equivalent to Lifting up a pen?",
+        "options":["A)penlift()","B)penup()","C)uppen()","D)penremove()"],
+        "answer":"B"
+    },
+    {
+        "question":"Library used to import images?",
+        "options":["A)PIL","B)Imageview","C)IMG","D)image"],
+        "answer":"A"
+     },
+     {
+         "question":"Values of CSV files are Seperated by?",
+         "options":["A)commas","B)Colons","C)Semi-colon","D)Slash"],
+         "answer":"A"
+     },
+     {   "question":"In the list L=[4,6,7,4,6,2,1],What is the index of element '7'?",
+         "options":["A)0","B)1","C)2","D)3"],
+         "answer":"C"
+     },
+     {
+         "question":"Which is the fastest Sorting Algorithm?",
+         "options":["A)Bubble Sort()","B)Bucket Sort()","C)Quick Sort()","D)Insertion sort()"],
+         "answer":"C"
+     },
+     {
+         "question":"Which Module is used to generate Random Numbers in python?",
+         "options":["A)math","B)random","C)stats","D)numpy"],
+         "answer":"B"
+     },
+     {
+         "question":"Which of the following method is Correct to add an Element at a Specific position?",
+         "options":["A)insert()","B)add()","C)append()","D)index()"],
+         "answer":"A"
+     },
+     {
+         "question":"Which of the following is not a Valid Datatype in python?",
+         "options":["A)integer","B)string","C)float","D)character"],
+         "answer":"D"
+      },
+      {
+          "question":"which of the following is a High-level programming Language?",
+          "options":["A)Assembly","B)C","C)Python","D)Machine Language"],
+          "answer":"C"
+      },
+      {
+          "question":"Which of the following is an Example of a Front-end programming language?",
+          "options":["A)PHP","B)Java","C)HTML","D)SQL"],
+          "answer":"C"
+      },
+      {
+          "question":"Which of the Following is not a type of Block in Scratch?",
+          "options":["A)Motion","B)looks","C)sound","D)jump"],
+          "answer":"D" 
+       },
+       {
+           "question":"Which Data type is used to create a variable that should store text in java?",
+            "options":["A)string","B)String","C)mystring","D)Txt"],
+            "answer":"B"
+       },
+       {
+           "question":"which method can be used to find a length of a string?",
+           "options":["A)len()","B)getLength()","C)length()","D)getSize"],
+           "answer":"C"
+       },  
+       {
+           "question":"who invented the programming language 'c'?",
+           "options":["A)Guido van Rossum","B)Dennis Ritchie","C)James Gosling","D)Charles Babage"],
+           "answer":"B"
+       },
+]
+random.shuffle(quiz_questions)
+#empty list to store asked questions
+asked_question_indices = set()
+score = 0
+#quiz loop
+while len(asked_question_indices)< len(quiz_questions):
+    remaining_indices = list(set(range(len(quiz_questions)))-asked_question_indices)
+    random_index = random.choice(remaining_indices)
+    current_question = quiz_questions[random_index]
+# Present the question and options to the user
+    print(f"Question {len(asked_question_indices) + 1}: {current_question['question']}")
+    for option in current_question['options']:
+        print(option)
+
+    # Get the user's answer
+    user_answer = input("Enter the letter of your answer (e.g., 'A'): ").strip().upper()
+
+    # Check if the user's answer is correct
+    if user_answer == current_question["answer"]:
+        print("Correct!\n")
+        score += 1
+    else:
+        print(f"{red_color}Sorry, the correct answer is {current_question['answer']}{reset_color}\n")
+
+    # Mark the question as asked
+    asked_question_indices.add(random_index)
+print("Quiz completed!")
+print(f"your score: {score}/{len(quiz_questions)}")
