@@ -1,33 +1,4 @@
-# Define a function to read a text file and count word occurrences
-def count_word_occurrences(filename):
-    word_count = {}
-    
-    try:
-        with open(filename, 'r') as file:
-            for line in file:
-                words = line.split()
-                for word in words:
-                    word = word.strip('.,!?()"\'')  # Remove punctuation
-                    word = word.lower()  # Convert to lowercase for case-insensitive comparison
-                    if word:
-                        if word in word_count:
-                            word_count[word] += 1
-                        else:
-                            word_count[word] = 1
-
-        return word_count
-    except FileNotFoundError:
-        return None
-
-# Input: Replace 'your_text_file.txt' with the path to your text file
-file_name = 'Unique_words.txt'
-
-# Call the function and get the word occurrences
-word_occurrences = count_word_occurrences(file_name)
-
-if word_occurrences:
-    # Print unique words and their occurrences
-    for word, count in word_occurrences.items():
-        print(f'Word: {word}, Occurrences: {count}')
-else:
-    print(f"File '{file_name}' not found.")
+PYTHON IS A VERSATILE AND WIDELY USED PROGRAMMING LANGUAGE RENOWNED FOR ITS SIMPLICITY AND READABILITY. GUIDO VAN ROSSUM CREATED PYTHON IN THE LATE 1980S, AND IT HAS SINCE GAINED IMMENSE POPULARITY AMONG DEVELOPERS, DATA SCIENTISTS, AND EDUCATORS. PYTHON'S STRAIGHTFORWARD SYNTAX AND EXTENSIVE STANDARD LIBRARY MAKE IT AN EXCELLENT CHOICE FOR BEGINNERS AND EXPERIENCED PROGRAMMERS ALIKE.
+PYTHON SUPPORTS MULTIPLE PROGRAMMING PARADIGMS, INCLUDING PROCEDURAL, OBJECT-ORIENTED, AND FUNCTIONAL PROGRAMMING. IT BOASTS DYNAMIC TYPING, AUTOMATIC MEMORY MANAGEMENT, AND A ROBUST ECOSYSTEM OF THIRD-PARTY LIBRARIES AND FRAMEWORKS, SUCH AS DJANGO, NUMPY, AND TENSORFLOW, MAKING IT SUITABLE FOR A WIDE RANGE OF APPLICATIONS.
+ONE OF PYTHON'S STANDOUT FEATURES IS ITS FOCUS ON READABILITY, USING INDENTATION TO DEFINE CODE BLOCKS, WHICH ENHANCES CODE MAINTAINABILITY. THIS FEATURE, COMBINED WITH EXTENSIVE DOCUMENTATION AND AN ACTIVE COMMUNITY, FOSTERS COLLABORATIVE CODING AND PROBLEM-SOLVING.
+PYTHON HAS FOUND APPLICATIONS IN WEB DEVELOPMENT, DATA ANALYSIS, MACHINE LEARNING, ARTIFICIAL INTELLIGENCE, AUTOMATION, AND MORE. ITS VERSATILITY, EASE OF LEARNING, AND WIDESPREAD ADOPTION HAVE CEMENTED PYTHON'S POSITION AS A POWERFUL TOOL IN THE WORLD OF PROGRAMMING.
