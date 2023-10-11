@@ -20,7 +20,7 @@ def count_word_occurrences(filename):
         return None
 
 # Input: Replace 'your_text_file.txt' with the path to your text file
-file_name = 'your_text_file.txt'
+file_name = 'Unique_words.txt'
 
 # Call the function and get the word occurrences
 word_occurrences = count_word_occurrences(file_name)
